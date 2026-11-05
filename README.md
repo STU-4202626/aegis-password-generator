@@ -92,6 +92,12 @@ The project is provided as an engineering portfolio project. It has **not** unde
 
 More details: [SECURITY.md](SECURITY.md).
 
-## License
+## Copyright and usage rights
 
-No open-source licence has been selected for this repository yet. Before granting reuse rights or accepting outside contributions, choose and add a licence such as MIT or Apache-2.0 if that fits your goals. Source visibility alone does not grant reuse permissions.
+**Proprietary project. Not open source.**
+
+Copyright © 2026 AEGIS project author. All rights reserved in the original project materials.
+
+The source code is publicly visible to demonstrate the project's design and implementation. **No open-source licence is granted.** Except for rights provided by GitHub's Terms of Service or separate written permission from the relevant rights holder, no licence is granted to modify, redistribute, sublicense or commercially exploit the original AEGIS code. Dependencies and third-party materials remain subject to their respective licences.
+
+The Windows installer, if offered under **Releases**, is a pre-release evaluation build, not an independently audited credential manager. See [SECURITY.md](SECURITY.md) for its limitations.

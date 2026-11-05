@@ -30,6 +30,8 @@ GitHub's browser uploader has a 25 MiB **per file** limit. This source package i
 
 GitHub Releases support attaching compiled binaries separately from source code. Be cautious with public distribution of security-sensitive software.
 
-## Choose a licence deliberately
+## Ownership and visibility
 
-This source package intentionally does **not** assign a licence for you. If you want users to modify and redistribute the source, add a `LICENSE` file once you've chosen the terms. MIT is a common permissive option but is not automatically the right choice for everyone.
+AEGIS is intentionally **proprietary**, even though this repository is public for portfolio viewing. Do not add MIT, Apache-2.0 or another open-source licence unless that decision changes. The root README describes the reserved rights for original project material; third-party components retain their own terms.
+
+Note that GitHub allows people to view and fork public repositories. If you want to prevent public access to the source entirely, make this repository private and create a separate public showcase containing only screenshots and descriptions.
