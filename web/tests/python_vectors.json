@@ -1,0 +1,74 @@
+[
+  {
+    "case": "Basic example",
+    "memorable": "Silver kites drift above the orchard",
+    "account": "example.com",
+    "length": 24,
+    "revision": 1,
+    "secret_hex": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+    "expected": "}Aii_r0_BUf3oK8j&TWnrCE#"
+  },
+  {
+    "case": "Short minimum",
+    "memorable": "blue boat river moon",
+    "account": "Email.com",
+    "length": 12,
+    "revision": 1,
+    "secret_hex": "7878787878787878787878787878787878787878787878787878787878787878",
+    "expected": "OC{eOU,yPW8)"
+  },
+  {
+    "case": "Different account",
+    "memorable": "blue boat river moon",
+    "account": "shop.example",
+    "length": 24,
+    "revision": 1,
+    "secret_hex": "7878787878787878787878787878787878787878787878787878787878787878",
+    "expected": "0e2^3@=NQDRRqD%DWLNW]6{I"
+  },
+  {
+    "case": "Rotated password",
+    "memorable": "blue boat river moon",
+    "account": "shop.example",
+    "length": 24,
+    "revision": 2,
+    "secret_hex": "7878787878787878787878787878787878787878787878787878787878787878",
+    "expected": "(yAw#.)=SB^v6U+l:tYMaq6F"
+  },
+  {
+    "case": "Trim and lower",
+    "memorable": " a phrase with leading spaces ",
+    "account": "  TEST.Example.COM  ",
+    "length": 34,
+    "revision": 9,
+    "secret_hex": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+    "expected": "^p##E:gK_X695L}w])E1vaZY5DjnWyiawL"
+  },
+  {
+    "case": "Unicode UTF-8",
+    "memorable": "La lumière danse 🌙",
+    "account": "EXAMPLE.org",
+    "length": 32,
+    "revision": 3,
+    "secret_hex": "6f6f6f6f6f6f6f6f6f6f6f6f6f6f6f6f6f6f6f6f6f6f6f6f6f6f6f6f6f6f6f6f",
+    "expected": "D8UeFx55Jws[xRHauOvZ^!]teFx&rKj)"
+  },
+  {
+    "case": "Symbols in phrase",
+    "memorable": "!I keep 7 lucky shells, always?",
+    "account": "example.net",
+    "length": 64,
+    "revision": 1,
+    "secret_hex": "d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5",
+    "expected": "lf1iXC4Cp*c3t;g_!lq8%_A0j#FAgbE;!,xo)4eQW^1zhTJUny,ggX;joRQdn_Ya"
+  },
+  {
+    "case": "Max length",
+    "memorable": "another distinct and memorable phrase",
+    "account": "long.example",
+    "length": 128,
+    "revision": 999999,
+    "secret_hex": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+    "expected": "46zuSP*JX2g!2SVl*?pCxRw$7=7D%O)0%));0P4eI*1*fMYRUE+%#{,Gg3_(3]F-d^:9zfcAYuN6{rY)4X5Y{ou#]a9s:FT;}?8{r(?=9OTSL[Ejx08,Nc_{0Dv?0-Jc"
+  }
+]

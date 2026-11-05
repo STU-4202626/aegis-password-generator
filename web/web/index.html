@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0b1120"><meta name="description" content="AEGIS Web Edition. Generate reproducible passwords in your browser.">
+  <title>AEGIS | Password Studio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar"><div class="top-inner">
+    <div class="brand"><span class="mark" aria-hidden="true">⬡</span><div><strong>AEGIS</strong><div class="subbrand">Passwords made personal</div></div></div>
+    <span class="edition">WEB EDITION · OFFLINE</span>
+  </div></header>
+  <main>
+    <section class="intro"><div><div class="eyebrow">Password Studio</div><h1>Your phrase. Your password.</h1>
+      <p>Turn a phrase you remember into a longer password for each account. Use the same details to make it again.</p></div>
+      <button class="sample" id="sample" type="button">Try an example</button>
+    </section>
+    <div class="layout">
+      <section class="card" aria-label="Password generator"><h2>Create a password</h2><p class="lead">The phrase stays in this browser tab and is not saved.</p>
+        <div class="field"><div class="field-head"><label for="account">Account or website</label></div><input id="account" name="account" maxlength="220" autocomplete="off" placeholder="e.g. example.com" spellcheck="false"></div>
+        <div class="field"><div class="field-head"><label for="phrase">Memorable phrase</label>
+          <button class="info" type="button" id="phrase-help" data-tip="A phrase you make up and can type again. AEGIS combines it with the account and your private key." aria-expanded="false" aria-controls="phrase-detail" aria-label="About memorable phrases">i</button></div>
+          <div class="password-field"><input id="phrase" name="phrase" autocomplete="off" type="password" placeholder="Enter a phrase you can remember" spellcheck="false">
+            <button type="button" class="eye" id="reveal" aria-label="Show memorable phrase" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" aria-hidden="true"><path d="M2.1 12s3.4-6 9.9-6 9.9 6 9.9 6-3.4 6-9.9 6S2.1 12 2.1 12Z"/><circle cx="12" cy="12" r="3"/><path id="slash" d="M3 21 21 3" hidden/></svg></button></div>
+          <div class="info-detail" id="phrase-detail" hidden><p>Choose a long, original phrase that you can remember. For example: <strong>Silver kites drift above the orchard</strong>.</p><p>AEGIS combines your phrase, the account name, the password version and a private key to create the password. It never saves your phrase. Don't reuse the example.</p></div>
+        </div>
+        <div class="pairs">
+          <div class="field"><div class="field-head"><label for="length">Password length</label></div><div class="number-wrap"><input id="length" inputmode="numeric" type="text" value="24" aria-label="Password length"><button type="button" class="step" id="less-length" aria-label="Decrease length">−</button><button type="button" class="step" id="more-length" aria-label="Increase length">+</button></div></div>
+          <div class="field"><div class="field-head"><label for="version">Password version</label>
+            <button class="info" type="button" id="version-help" data-tip="Increase the version when you want to change the password for this account." aria-controls="version-detail" aria-expanded="false" aria-label="About password versions">i</button></div>
+            <div class="number-wrap"><input id="version" inputmode="numeric" type="text" value="1" aria-label="Password version"><button type="button" class="step" id="less-version" aria-label="Decrease version">−</button><button type="button" class="step" id="more-version" aria-label="Increase version">+</button></div>
+          </div>
+        </div>
+        <div class="info-detail" id="version-detail" hidden><p>Start at version 1. If you need a new password for the same account, increase the version.</p><p>Remember to update the password on the website itself. AEGIS cannot change it for you.</p></div>
+        <button class="primary" id="generate" type="button">Generate password</button>
+      </section>
+      <section class="card result" aria-label="Generated password"><div><h2>Your generated password</h2><p class="lead">A new password appears here when you select Generate.</p>
+        <div class="result-box" id="output" aria-live="polite"><span class="placeholder">Your password will appear here</span></div></div>
+        <div class="actions"><button class="outline" id="copy" type="button" disabled>Copy password</button><button class="outline" id="save" type="button" disabled>Save .txt</button><button class="outline wide" id="rotate" type="button">Use next password version</button></div>
+        <p class="status" role="status" aria-live="polite" id="status">Ready. Your data is processed in this browser.</p>
+        <div class="steps"><div class="steps-title">HOW IT WORKS</div><ol><li>Choose a memorable phrase and an account.</li><li>Set the length and password version.</li><li>Generate, copy or save your password.</li></ol></div>
+      </section>
+    </div>
+    <section class="card keycard" aria-label="Session key"><div class="keyhead"><h2>Browser session key</h2><span class="tag">Not saved automatically</span></div>
+      <p>This web version uses a random key for this tab. Keep it if you need to recreate the same passwords later. To check compatibility with the Python version, use a shared <em>test</em> key.</p>
+      <div class="keyrow"><label class="visually-hidden" for="secret">Private session key in hexadecimal</label><input id="secret" type="password" spellcheck="false" autocomplete="off" aria-label="Browser session key in hexadecimal" placeholder="64 or more hexadecimal characters"><button type="button" class="outline" id="show-key">Show key</button></div>
+      <div class="keybuttons"><button type="button" class="outline" id="copy-key">Copy key</button><button type="button" class="outline" id="new-key">Make new key</button><button type="button" class="outline" id="apply-key">Use entered key</button></div>
+      <p class="muted-note">A matching password requires the same phrase, account, length, version and private key. The desktop application's encrypted vault key is not imported here.</p>
+      <p class="warning muted-note">Protect your private key. Do not paste the secret from a real AEGIS desktop vault into a website.</p>
+    </section>
+  </main>
+  <footer><div class="footer-inner"><span>AEGIS Web Edition · Built to run locally</span><span>No account sign-in · No servers · No external libraries</span></div></footer>
+  <script src="engine.js"></script><script src="app.js"></script>
+</body></html>

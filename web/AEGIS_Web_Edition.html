@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0b1120"><meta name="description" content="AEGIS Web Edition. Generate reproducible passwords in your browser.">
+  <title>AEGIS | Password Studio</title>
+  <style>
+*{box-sizing:border-box} :root{color-scheme:dark;--bg:#0b1120;--panel:#121e32;--panel2:#19283e;--edge:#2b3d56;--text:#edf6ff;--muted:#9cb0c8;--mint:#7fe6d7;--focus:#79dfd0;--orange:#efb96a;font-family:Inter,"Segoe UI",system-ui,sans-serif}body{margin:0;background:radial-gradient(ellipse at 74% -25%,#193a4c 0,transparent 48%),var(--bg);color:var(--text);min-height:100vh;line-height:1.5}button,input{font:inherit}button{cursor:pointer;transition:background .15s,border-color .15s,transform .12s}button:focus-visible,input:focus-visible{outline:2px solid var(--focus);outline-offset:3px}button:disabled{opacity:.45;cursor:not-allowed}main,.top-inner,.footer-inner{max-width:1170px;margin:auto}.topbar{border-bottom:1px solid #25364b;background:rgba(9,17,30,.72)}.top-inner{display:flex;align-items:center;justify-content:space-between;padding:21px 24px;gap:18px}.brand{display:flex;align-items:center;gap:12px}.mark{width:44px;height:44px;border:1px solid #378c89;background:#183947;color:#7fe6d7;border-radius:14px;display:grid;place-items:center;font-size:25px}.brand strong{letter-spacing:.12em;font-size:20px;color:var(--mint)}.subbrand{font-size:12px;color:var(--muted);margin-top:-2px}.edition{background:#20374b;color:#a4f2e5;border:1px solid #386b71;border-radius:99px;padding:6px 12px;font-size:12px;font-weight:650}main{padding:45px 24px 70px}.intro{display:flex;justify-content:space-between;align-items:end;gap:18px;margin-bottom:26px}.eyebrow{font-size:12px;letter-spacing:.13em;font-weight:800;color:var(--mint);text-transform:uppercase}.intro h1{font-size:clamp(28px,4vw,38px);margin:8px 0 8px;line-height:1.2}.intro p{color:var(--muted);margin:0;max-width:600px}.sample{border:1px solid #42636a;background:#182e40;color:var(--mint);border-radius:11px;padding:11px 16px;font-weight:650;white-space:nowrap}.sample:hover{background:#23485a}.layout{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(310px,.8fr);gap:20px}.card{background:var(--panel);border:1px solid var(--edge);border-radius:20px;padding:26px;box-shadow:0 16px 40px rgba(0,0,0,.1)}.card h2{margin:0 0 6px;font-size:19px;letter-spacing:-.02em}.card .lead{margin:0 0 25px;color:var(--muted);font-size:13px}.field{margin-bottom:21px}.field-head{display:flex;align-items:center;gap:8px;margin-bottom:9px}.field-head label,.field-head .label{font-size:14px;font-weight:700}.tiny{color:var(--muted);font-size:12px}.field input,.number-wrap{height:52px;border-radius:11px;border:1px solid #3a526e;background:var(--panel2);color:var(--text);width:100%;min-width:0}.field input{padding:0 15px}.field input::placeholder{color:#8298b5}.password-field{position:relative}.password-field input{padding-right:63px}.eye{position:absolute;top:5px;right:9px;height:42px;width:43px;border:1px solid transparent;color:#b8e9e3;background:transparent;border-radius:9px;display:grid;place-items:center}.eye:hover{background:#25465a;border-color:#487982}.eye svg{height:24px;width:24px}.pairs{display:grid;grid-template-columns:1fr 1fr;gap:18px}.number-wrap{display:flex;align-items:center;padding:5px 7px 5px 13px;gap:8px}.number-wrap input{background:transparent;border:0;min-width:0;flex:1;width:20px;color:#f2f8ff;font-size:17px;font-weight:700;padding:0 6px;height:37px}.number-wrap input:focus{outline:0}.step{height:38px;width:39px;flex:none;border-radius:8px;color:var(--text);border:1px solid #405b78;background:#253a52;font-size:21px}.step:hover{background:#31556a}.info{position:relative;display:inline-grid;place-items:center;width:19px;height:19px;border:1px solid #538f92;border-radius:7px;background:#213b52;color:#a7eee4;padding:0;font-size:11px;font-weight:800}.info:hover,.info:focus-visible{background:#2d5765}.info::after{content:attr(data-tip);position:absolute;z-index:3;pointer-events:none;bottom:calc(100% + 11px);left:50%;transform:translateX(-30%);width:235px;background:#1b2e42;border:1px solid #4c9f9a;border-radius:9px;color:#eaf8f5;font-size:12px;font-weight:400;padding:9px 11px;text-align:left;box-shadow:0 8px 28px #0006;opacity:0;visibility:hidden;transition:opacity .12s;white-space:normal}.info:hover::after,.info:focus-visible::after{opacity:1;visibility:visible}.info-detail{margin-top:10px;background:#172b40;border:1px solid #386272;border-radius:11px;color:#c9e3e7;font-size:13px;padding:13px 16px}.info-detail p{margin:4px 0 8px}.info-detail p:last-child{margin-bottom:0}.info-detail[hidden]{display:none}.secondary{display:block;background:transparent;border:0;color:#8be6d7;font-weight:600;padding:0;margin-top:7px;text-align:left;font-size:13px}.secondary:hover{text-decoration:underline}.primary{width:100%;border:1px solid #74dacc;color:#092024;background:#7fe6d7;border-radius:12px;padding:15px 20px;font-weight:800;font-size:15px}.primary:hover{background:#a0f1e5}.result{display:flex;flex-direction:column;gap:15px;height:100%}.result-box{background:#18293f;border:1px solid #38506d;border-radius:12px;padding:18px;min-height:105px;display:flex;align-items:center;word-break:break-all;font-family:ui-monospace,Consolas,monospace;color:#e8fcf7;font-size:18px;line-height:1.6;letter-spacing:.025em}.placeholder{color:#89a2bd;font-family:Inter,"Segoe UI",sans-serif;font-size:14px;letter-spacing:normal}.actions{display:grid;grid-template-columns:1fr 1fr;gap:11px}.outline{background:#243b50;border:1px solid #43647c;border-radius:10px;color:#e4f4ff;padding:12px 10px;font-weight:650}.outline:hover{background:#2d5367}.outline.wide{grid-column:span 2}.status{border:1px solid #35576b;background:#163249;border-radius:10px;padding:10px 12px;color:#aad9e4;font-size:12px;margin:0}.status.error{border-color:#99654a;color:#ffd5c8;background:#432828}.steps{margin-top:auto}.steps-title{font-size:12px;color:var(--mint);font-weight:800;letter-spacing:.08em}.steps ol{margin:7px 0 0;padding-left:22px;color:#bccfe4;font-size:13px}.steps li{margin:5px 0}.keycard{margin-top:20px;padding:23px 26px}.keyhead{display:flex;align-items:center;justify-content:space-between;gap:12px}.keyhead h2{font-size:17px;margin:0}.tag{color:#a9c5e2;border-radius:99px;background:#1b3045;font-size:11px;padding:6px 10px}.keycard p{font-size:13px;color:var(--muted);margin:9px 0 15px}.keyrow{display:flex;gap:10px;align-items:center}.keyrow input{flex:1;min-width:0;height:44px;background:#19283e;border:1px solid #3a526e;color:#e6f5ff;border-radius:9px;padding:0 13px;font-family:ui-monospace,Consolas,monospace;font-size:13px}.keyrow button{height:44px;white-space:nowrap}.keybuttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:11px}.muted-note{font-size:12px!important;color:#b4c5da!important}.keycard .warning{color:#efc68e!important}footer{border-top:1px solid #27364c;padding:18px 24px 30px;color:#8095b2;font-size:12px}.footer-inner{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}.visually-hidden{position:absolute;clip:rect(0 0 0 0);width:1px;height:1px;overflow:hidden;white-space:nowrap}@media(max-width:800px){.layout{grid-template-columns:1fr}.intro{align-items:start;flex-direction:column}.card{padding:21px}.result-box{min-height:75px}.pairs{gap:10px}}@media(max-width:460px){main{padding:30px 14px}.top-inner{padding:17px 14px}.pairs{grid-template-columns:1fr}.actions{grid-template-columns:1fr}.outline.wide{grid-column:span 1}.keyrow{flex-wrap:wrap}.keyrow input{flex:0 0 100%}.keyrow button{flex:1}.edition{font-size:10px}}@media(prefers-reduced-motion:reduce){button,.info::after{transition:none}}
+
+</style>
+</head>
+<body>
+  <header class="topbar"><div class="top-inner">
+    <div class="brand"><span class="mark" aria-hidden="true">⬡</span><div><strong>AEGIS</strong><div class="subbrand">Passwords made personal</div></div></div>
+    <span class="edition">WEB EDITION · OFFLINE</span>
+  </div></header>
+  <main>
+    <section class="intro"><div><div class="eyebrow">Password Studio</div><h1>Your phrase. Your password.</h1>
+      <p>Turn a phrase you remember into a longer password for each account. Use the same details to make it again.</p></div>
+      <button class="sample" id="sample" type="button">Try an example</button>
+    </section>
+    <div class="layout">
+      <section class="card" aria-label="Password generator"><h2>Create a password</h2><p class="lead">The phrase stays in this browser tab and is not saved.</p>
+        <div class="field"><div class="field-head"><label for="account">Account or website</label></div><input id="account" name="account" maxlength="220" autocomplete="off" placeholder="e.g. example.com" spellcheck="false"></div>
+        <div class="field"><div class="field-head"><label for="phrase">Memorable phrase</label>
+          <button class="info" type="button" id="phrase-help" data-tip="A phrase you make up and can type again. AEGIS combines it with the account and your private key." aria-expanded="false" aria-controls="phrase-detail" aria-label="About memorable phrases">i</button></div>
+          <div class="password-field"><input id="phrase" name="phrase" autocomplete="off" type="password" placeholder="Enter a phrase you can remember" spellcheck="false">
+            <button type="button" class="eye" id="reveal" aria-label="Show memorable phrase" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" aria-hidden="true"><path d="M2.1 12s3.4-6 9.9-6 9.9 6 9.9 6-3.4 6-9.9 6S2.1 12 2.1 12Z"/><circle cx="12" cy="12" r="3"/><path id="slash" d="M3 21 21 3" hidden/></svg></button></div>
+          <div class="info-detail" id="phrase-detail" hidden><p>Choose a long, original phrase that you can remember. For example: <strong>Silver kites drift above the orchard</strong>.</p><p>AEGIS combines your phrase, the account name, the password version and a private key to create the password. It never saves your phrase. Don't reuse the example.</p></div>
+        </div>
+        <div class="pairs">
+          <div class="field"><div class="field-head"><label for="length">Password length</label></div><div class="number-wrap"><input id="length" inputmode="numeric" type="text" value="24" aria-label="Password length"><button type="button" class="step" id="less-length" aria-label="Decrease length">−</button><button type="button" class="step" id="more-length" aria-label="Increase length">+</button></div></div>
+          <div class="field"><div class="field-head"><label for="version">Password version</label>
+            <button class="info" type="button" id="version-help" data-tip="Increase the version when you want to change the password for this account." aria-controls="version-detail" aria-expanded="false" aria-label="About password versions">i</button></div>
+            <div class="number-wrap"><input id="version" inputmode="numeric" type="text" value="1" aria-label="Password version"><button type="button" class="step" id="less-version" aria-label="Decrease version">−</button><button type="button" class="step" id="more-version" aria-label="Increase version">+</button></div>
+          </div>
+        </div>
+        <div class="info-detail" id="version-detail" hidden><p>Start at version 1. If you need a new password for the same account, increase the version.</p><p>Remember to update the password on the website itself. AEGIS cannot change it for you.</p></div>
+        <button class="primary" id="generate" type="button">Generate password</button>
+      </section>
+      <section class="card result" aria-label="Generated password"><div><h2>Your generated password</h2><p class="lead">A new password appears here when you select Generate.</p>
+        <div class="result-box" id="output" aria-live="polite"><span class="placeholder">Your password will appear here</span></div></div>
+        <div class="actions"><button class="outline" id="copy" type="button" disabled>Copy password</button><button class="outline" id="save" type="button" disabled>Save .txt</button><button class="outline wide" id="rotate" type="button">Use next password version</button></div>
+        <p class="status" role="status" aria-live="polite" id="status">Ready. Your data is processed in this browser.</p>
+        <div class="steps"><div class="steps-title">HOW IT WORKS</div><ol><li>Choose a memorable phrase and an account.</li><li>Set the length and password version.</li><li>Generate, copy or save your password.</li></ol></div>
+      </section>
+    </div>
+    <section class="card keycard" aria-label="Session key"><div class="keyhead"><h2>Browser session key</h2><span class="tag">Not saved automatically</span></div>
+      <p>This web version uses a random key for this tab. Keep it if you need to recreate the same passwords later. To check compatibility with the Python version, use a shared <em>test</em> key.</p>
+      <div class="keyrow"><label class="visually-hidden" for="secret">Private session key in hexadecimal</label><input id="secret" type="password" spellcheck="false" autocomplete="off" aria-label="Browser session key in hexadecimal" placeholder="64 or more hexadecimal characters"><button type="button" class="outline" id="show-key">Show key</button></div>
+      <div class="keybuttons"><button type="button" class="outline" id="copy-key">Copy key</button><button type="button" class="outline" id="new-key">Make new key</button><button type="button" class="outline" id="apply-key">Use entered key</button></div>
+      <p class="muted-note">A matching password requires the same phrase, account, length, version and private key. The desktop application's encrypted vault key is not imported here.</p>
+      <p class="warning muted-note">Protect your private key. Do not paste the secret from a real AEGIS desktop vault into a website.</p>
+    </section>
+  </main>
+  <footer><div class="footer-inner"><span>AEGIS Web Edition · Built to run locally</span><span>No account sign-in · No servers · No external libraries</span></div></footer>
+  <script>
+/* AEGIS Web Edition: faithful JavaScript translation of aegis/security.py.
+   Uses built-in Web Crypto only. No network requests or third-party scripts.
+   A vault secret must be supplied independently; this module does not decrypt
+   desktop .aegis backups or claim to be a desktop vault replacement. */
+(function (root) {
+  'use strict';
+  const enc = new TextEncoder();
+  const VERSION = 'aegis-derive-v1';
+  const GROUPS = ['ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz',
+    '0123456789', '!@#$%^&*()-_=+[]{};:,.?'];
+  const ALPHABET = GROUPS.join('');
+  const subtle = () => {
+    const result = globalThis.crypto && globalThis.crypto.subtle;
+    if (!result) throw new Error('Web Crypto is unavailable. Open this page in a modern browser on a secure origin.');
+    return result;
+  };
+  function concat(...arrays) {
+    const out = new Uint8Array(arrays.reduce((n, a) => n + a.length, 0));
+    let offset = 0;
+    for (const a of arrays) {out.set(a, offset); offset += a.length;}
+    return out;
+  }
+  function u32(n) {
+    const a = new Uint8Array(4);
+    new DataView(a.buffer).setUint32(0, n, false);
+    return a;
+  }
+  function u64(n) {
+    const a = new Uint8Array(8);
+    new DataView(a.buffer).setBigUint64(0, BigInt(n), false);
+    return a;
+  }
+  function hexToBytes(s) {
+    if (typeof s !== 'string' || !/^(?:[0-9a-fA-F]{2})+$/.test(s))
+      throw new Error('Enter a valid hexadecimal secret with an even number of characters.');
+    return Uint8Array.from(s.match(/.{2}/g), h => parseInt(h, 16));
+  }
+  function bytesToHex(bytes) {
+    return Array.from(bytes, b => b.toString(16).padStart(2, '0')).join('');
+  }
+  async function importHmac(rawKey) {
+    return subtle().importKey('raw', rawKey, {name:'HMAC', hash:'SHA-256'}, false, ['sign']);
+  }
+  async function hmac(key, message) {
+    return new Uint8Array(await subtle().sign('HMAC', key, message));
+  }
+  async function sample(key, alphabet, state) {
+    const n = alphabet.length;
+    const limit = 256 - (256 % n);
+    while (true) {
+      const block = await hmac(key, u64(state.count));
+      state.count += 1n;
+      for (const b of block) {
+        if (b < limit) return alphabet[b % n];
+      }
+    }
+  }
+  /** Produces identical output to Python aegis.security.generate_password() for
+      the same phrase, account, length, private-secret bytes and revision.
+      The private secret is a separate 32-byte+ value, not the master passphrase. */
+  async function generatePassword(memorable, account, length, privateSecret, revision = 1) {
+    if (typeof memorable !== 'string' || memorable.length < 1)
+      throw new Error('Enter a memorable phrase.');
+    if (typeof account !== 'string' || !account.trim())
+      throw new Error('Enter an account or website.');
+    if (!Number.isInteger(length) || length < 12 || length > 128)
+      throw new Error('Choose a password length between 12 and 128.');
+    if (!(privateSecret instanceof Uint8Array) || privateSecret.length < 32)
+      throw new Error('Enter a private secret containing at least 32 bytes.');
+    if (!Number.isInteger(revision) || revision < 1 || revision > 999999)
+      throw new Error('Choose a password version between 1 and 999999.');
+    const identifier = enc.encode(account.trim().toLowerCase());
+    const context = concat(enc.encode(VERSION), new Uint8Array([0]),
+      u32(identifier.length), identifier, u32(revision));
+    const pbkdf2Key = await subtle().importKey('raw', enc.encode(memorable), 'PBKDF2', false, ['deriveBits']);
+    const material = new Uint8Array(await subtle().deriveBits({name:'PBKDF2',
+      hash:'SHA-256', salt:concat(privateSecret, context), iterations:310000}, pbkdf2Key, 256));
+    const materialKey = await importHmac(material);
+    const seed = await hmac(materialKey, enc.encode('aegis-output-v1'));
+    const seedKey = await importHmac(seed);
+    const state = {count:0n};
+    const chars = [];
+    for (const group of GROUPS) chars.push(await sample(seedKey, group, state));
+    while (chars.length < length) chars.push(await sample(seedKey, ALPHABET, state));
+    const prefix = enc.encode('shuffle');
+    for (let i = chars.length - 1; i > 0; i--) {
+      const limit = 4294967296 - (4294967296 % (i + 1));
+      let value;
+      do {
+        const digest = await hmac(seedKey, concat(prefix, u64(state.count)));
+        state.count += 1n;
+        value = new DataView(digest.buffer, digest.byteOffset, 4).getUint32(0, false);
+      } while (value >= limit);
+      const j = value % (i + 1);
+      [chars[i], chars[j]] = [chars[j], chars[i]];
+    }
+    return chars.join('');
+  }
+  const api = Object.freeze({generatePassword, hexToBytes, bytesToHex, GROUPS, VERSION});
+  if (typeof module !== 'undefined' && module.exports) module.exports = api;
+  if (root) root.AegisEngine = api;
+})(typeof window !== 'undefined' ? window : null);
+
+</script>
+<script>
+/* AEGIS Web Edition interface. No analytics, networking or persistent storage. */
+(function () {
+  'use strict';
+  const $ = id => document.getElementById(id);
+  const engine = window.AegisEngine;
+  const el = {
+    account:$('account'),phrase:$('phrase'),length:$('length'),version:$('version'),
+    output:$('output'),status:$('status'),generate:$('generate'),copy:$('copy'),
+    save:$('save'),secret:$('secret'),reveal:$('reveal'),slash:$('slash')
+  };
+  let last = '';
+  let privateKey = null;
+  let busy = false;
+  function say(message, error = false) {
+    el.status.textContent = message;
+    el.status.classList.toggle('error', error);
+  }
+  function invalidate() {
+    last = '';
+    el.output.replaceChildren();
+    const span = document.createElement('span');
+    span.className='placeholder';
+    span.textContent='Your password will appear here';
+    el.output.append(span);
+    el.copy.disabled = true;
+    el.save.disabled = true;
+  }
+  function freshKey() {
+    if (!globalThis.crypto || !crypto.getRandomValues)
+      throw new Error('This browser cannot create a secure session key.');
+    const bytes = new Uint8Array(32);
+    crypto.getRandomValues(bytes);
+    privateKey = bytes;
+    el.secret.value = engine.bytesToHex(bytes);
+    invalidate();
+    say('A new session key is ready. Save it privately if you need to recreate passwords.');
+  }
+  function readNumber(field, min, max, title) {
+    const text = field.value.trim();
+    if (!/^\d+$/.test(text)) throw new Error(`${title} must be a whole number.`);
+    const v = Number(text);
+    if (!Number.isSafeInteger(v) || v < min || v > max)
+      throw new Error(`${title} must be between ${min} and ${max}.`);
+    return v;
+  }
+  function changeNumber(field, delta, min, max) {
+    const original = Number(field.value);
+    const start = Number.isFinite(original) ? original : min;
+    field.value = String(Math.min(max, Math.max(min, start + delta)));
+    invalidate();
+  }
+  $('less-length').addEventListener('click', () => changeNumber(el.length,-1,12,128));
+  $('more-length').addEventListener('click', () => changeNumber(el.length,1,12,128));
+  $('less-version').addEventListener('click', () => changeNumber(el.version,-1,1,999999));
+  $('more-version').addEventListener('click', () => changeNumber(el.version,1,1,999999));
+  $('rotate').addEventListener('click', () => {
+    changeNumber(el.version,1,1,999999);
+    say('Version changed. Update the password on the website after generating it.');
+  });
+  for (const field of [el.account,el.phrase,el.length,el.version]) field.addEventListener('input', invalidate);
+  $('phrase-help').addEventListener('click', () => toggleHelp('phrase-help','phrase-detail'));
+  $('version-help').addEventListener('click', () => toggleHelp('version-help','version-detail'));
+  function toggleHelp(buttonId, detailId) {
+    const body = $(detailId), button = $(buttonId);
+    body.hidden = !body.hidden;
+    button.setAttribute('aria-expanded',String(!body.hidden));
+  }
+  el.reveal.addEventListener('click', () => {
+    const show = el.phrase.type === 'password';
+    el.phrase.type = show ? 'text' : 'password';
+    el.slash.hidden = !show;
+    el.reveal.setAttribute('aria-pressed', String(show));
+    el.reveal.setAttribute('aria-label', show ? 'Hide memorable phrase' : 'Show memorable phrase');
+    el.phrase.focus();
+  });
+  $('show-key').addEventListener('click', () => {
+    const show = el.secret.type === 'password';
+    el.secret.type = show ? 'text' : 'password';
+    $('show-key').textContent = show ? 'Hide key' : 'Show key';
+  });
+  $('new-key').addEventListener('click', () => {
+    if (!window.confirm('Create a new key? Existing passwords will change unless you have saved your old key.')) return;
+    try {freshKey();} catch (err) {say(err.message, true);}
+  });
+  $('apply-key').addEventListener('click', () => {
+    try {
+      const bytes = engine.hexToBytes(el.secret.value.trim());
+      if (bytes.length < 32) throw new Error('Enter at least 64 hexadecimal characters.');
+      privateKey = bytes;
+      el.secret.value = engine.bytesToHex(bytes);
+      invalidate();
+      say('Session key updated. Passwords will now use this key.');
+    } catch(err) {say(err.message,true);}
+  });
+  // Editing the key does not silently modify the key in use. Apply it explicitly.
+  el.secret.addEventListener('input', () => say('Select Use entered key to apply your key.'));
+  $('sample').addEventListener('click', () => {
+    el.account.value = 'example.com';
+    el.phrase.value = 'Silver kites drift above the orchard';
+    el.phrase.type = 'password';
+    el.reveal.setAttribute('aria-pressed','false');
+    el.reveal.setAttribute('aria-label','Show memorable phrase');
+    el.slash.hidden = true;
+    el.length.value = '24';
+    el.version.value = '1';
+    // Explicit fixed public TEST key: never for real accounts.
+    privateKey = Uint8Array.from({length:32}, (_, i) => i);
+    el.secret.value = engine.bytesToHex(privateKey);
+    invalidate();
+    say('Example loaded with a public test key. Do not use this example for a real account.');
+  });
+  el.generate.addEventListener('click', async () => {
+    if (busy) return;
+    try {
+      if (!privateKey) throw new Error('Create or enter a session key first.');
+      const account = el.account.value, memorable = el.phrase.value;
+      const length = readNumber(el.length,12,128,'Password length');
+      const version = readNumber(el.version,1,999999,'Password version');
+      busy = true;
+      el.generate.disabled = true;
+      el.generate.textContent = 'Generating…';
+      say('Generating password locally…');
+      // Take a snapshot, discard output if any input changes while generating.
+      const key = privateKey;
+      const result = await engine.generatePassword(memorable,account,length,key,version);
+      if (account !== el.account.value || memorable !== el.phrase.value ||
+          String(length) !== el.length.value.trim() || String(version) !== el.version.value.trim() ||
+          key !== privateKey) {
+        invalidate();say('The inputs changed. Generate again.');return;
+      }
+      last = result;
+      el.output.textContent = last;
+      el.copy.disabled = false;
+      el.save.disabled = false;
+      say('Password ready. Use the same details and session key to recreate it.');
+    } catch(err) {invalidate();say(err.message || 'Could not generate the password.',true);}
+    finally {busy=false;el.generate.disabled=false;el.generate.textContent='Generate password';}
+  });
+  async function copyText(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      try {await navigator.clipboard.writeText(text);return true;} catch(_e) {/* fallback */}
+    }
+    const textarea = document.createElement('textarea');
+    textarea.value=text; textarea.setAttribute('readonly','');
+    textarea.style.position='fixed';textarea.style.opacity='0';
+    document.body.append(textarea); textarea.select();
+    let ok = false;
+    try {ok=document.execCommand('copy');} catch(_e) {}
+    textarea.remove();return ok;
+  }
+  el.copy.addEventListener('click', async () => {
+    if (!last) return;
+    const ok = await copyText(last);
+    say(ok ? 'Password copied. Clear it from your clipboard after use.' : 'Copy was blocked. Select and copy the password manually.', !ok);
+  });
+  $('copy-key').addEventListener('click', async () => {
+    if (!privateKey) return;
+    const ok = await copyText(engine.bytesToHex(privateKey));
+    say(ok ? 'Session key copied. Keep it private.' : 'Copy was blocked. Show the key and copy it manually.', !ok);
+  });
+  el.save.addEventListener('click', () => {
+    if (!last) return;
+    if (!window.confirm('This saves your password as an unencrypted text file. Continue?')) return;
+    const name = el.account.value.trim().toLowerCase().replace(/[^a-z0-9.-]/g,'_').slice(0,70) || 'account';
+    const blob = new Blob([`AEGIS password for ${el.account.value.trim()}\n${last}\n`],{type:'text/plain;charset=utf-8'});
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement('a');
+    anchor.href=url;anchor.download=`AEGIS-${name}.txt`;
+    document.body.append(anchor);anchor.click();anchor.remove();
+    setTimeout(() => URL.revokeObjectURL(url),1000);
+    say('Text file saved. It is not encrypted.');
+  });
+  window.addEventListener('pagehide', () => {invalidate();el.phrase.value='';});
+  try {freshKey();} catch(err) {say(err.message,true);}
+})();
+
+</script>
+</body></html>

@@ -1,0 +1,44 @@
+# Local secrets and user data. NEVER commit real credentials.
+*.aegis
+*.aegis.*
+*.key
+*.secret
+*recovery-codes*
+*backup-codes*
+*otpauth*
+.env
+.env.*
+!.env.example
+vault/
+secrets/
+exports/
+backup/
+backups/
+
+# Python/Qt and Windows packaging outputs
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.venv-build/
+build/
+dist/
+installer-output/
+*.exe
+*.dll
+*.pyd
+*.msi
+*.rar
+
+# Local editor/runtime files
+.idea/
+.vscode/
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+
+# Private videos and assignment submissions
+*Demonstration*.mp4
+COS738_AEGIS_Final_Submission/
