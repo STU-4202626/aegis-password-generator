@@ -100,4 +100,4 @@ Copyright © 2026 AEGIS project author. All rights reserved in the original proj
 
 The source code is publicly visible to demonstrate the project's design and implementation. **No open-source licence is granted.** Except for rights provided by GitHub's Terms of Service or separate written permission from the relevant rights holder, no licence is granted to modify, redistribute, sublicense or commercially exploit the original AEGIS code. Dependencies and third-party materials remain subject to their respective licences.
 
-The Windows installer offered under **Releases**, is a pre-release evaluation build, not an independently audited credential manager. See [SECURITY.md](SECURITY.md) for its limitations.
+The Windows installer offered under **Releases** is a pre-release evaluation build, not an independently audited credential manager. See [SECURITY.md](SECURITY.md) for its limitations.
